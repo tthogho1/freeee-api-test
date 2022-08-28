@@ -1,0 +1,30 @@
+<template>
+  <div id="app">
+    <HelloWorld v-bind:title="message"
+      v-on:result-event="appAction" />
+    <hr>
+    <p>{{result}}</p>
+  </div>
+</template>>
+<script>
+import HelloWorld from './components/HelloWorld.vue'
+
+export default {
+  name: 'app',
+  components: {
+    'HelloWorld': HelloWorld
+  },
+  data() {
+    return {
+      message: 'Hello Vue!',
+      result: 'no event',
+    }
+  },
+  methods: {
+    appAction(message) {
+      console.log(message);
+      this.result = 'result: ' + message;
+    }
+  }
+}
+</script>
